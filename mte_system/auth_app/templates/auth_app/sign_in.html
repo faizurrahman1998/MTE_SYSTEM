@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ruda:wght@500&display=swap" rel="stylesheet">    
+    
+    <link rel="stylesheet" href="{% static 'auth_app/sign_in.css' %}">
+
+    <title>Login page</title>
+</head>
+<body>
+    
+    <div class="header">
+        <h1>
+            Mechatronics Engineering, KUET.
+        </h1>
+    </div>
+
+    {% if messages %}        
+        <div class="no_holder">
+            {% for message in messages %}
+
+                <div class="notifications">
+                    <p>> {{message}}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+
+    <div class="container">
+
+        <div class="sign_in">
+
+            <h2>Sign in</h2>
+
+            <form action="" method="POST">
+
+                <div class="fields">
+
+                    <input name="username" type="text" autocomplete="off" required>
+                    <label for="username">
+                        <span>
+                            Username
+                        </span>
+                    </label>
+
+                </div>
+
+                <div class="fields">
+
+                    <input name="password" type="password" autocomplete="off" required>
+                    <label for="username">
+                        <span>
+                            password
+                        </span>
+                    </label>
+                    
+                </div>
+
+                <button class="sub_sign_in" type="submit"> Sign in </button>
+
+            </form>
+
+            <a class="forgot_password" href="">Forgot Password?</a>
+        </div>
+
+        <div class="sign_up">
+            <h3>
+                Not an User?
+            </h3>
+
+            <p>
+                Create an Account
+            </p>
+
+            <a href="{%url "sign_up"%}">
+                <input class="sign_up_btn" type="button" value="Sign up">
+            </a>
+
+        </div>
+    </div>
+</body>
+</html>

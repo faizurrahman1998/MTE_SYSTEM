@@ -1,0 +1,126 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ruda:wght@500&display=swap" rel="stylesheet">  
+
+    <link rel="stylesheet" type="text/css" href="{% static 'auth_app/sign_up.css' %}">
+
+    <title>Sign up</title>
+</head>
+<body>
+
+    <div class="mess_list">
+
+        {% if errors %}
+            {{errors}}
+            
+        {%else%}
+            
+            {% for message in messages %}
+                {{message}}
+            {% endfor %}
+
+        {% endif %}
+
+    </div>
+
+    <div class="container">
+
+        <div class="sign_up">
+            <h2>Sign Up</h2>
+
+            <form action="" method="POST">
+                {% csrf_token %}
+            <div class="fields">
+
+                <input type="text" name = "kuet_id" autocomplete="off" required>
+                <label>
+                    <span>ID</span>
+                </label>
+
+            </div>
+            
+            <div class="fields">
+
+                <input type="email" name="email" autocomplete="off" required>
+                <label>
+                    <span>Email</span>
+                </label>
+
+            </div>
+
+            <div class="fields">
+
+                <input type="text" name="first_name" autocomplete="off" required>
+                <label>
+                    <span>first Name</span>
+                </label>
+
+            </div>
+
+            <div class="fields">
+
+                <input type="text" name="last_name" autocomplete="off" required>
+                <label>
+                    <span>last Name</span>
+                </label>
+
+            </div>
+
+            <div class="fields">
+
+                <input type="text" name="username" autocomplete="off" required>
+                <label>
+                    <span>Username</span>
+                </label>
+
+            </div>
+
+            <div class="fields">
+
+                <input type="password" name="password1" required>
+                <label>
+                    <span>password</span>
+                </label>
+
+            </div>
+
+            <div class="fields">
+
+                <input type="password" name="password2" required>
+                <label>
+                    <span>Confirm Password</span>
+                </label>
+                
+            </div>
+
+                <button class="reg" type="submit"> Sign Up </button>
+            </form>
+            
+        </div>
+        
+        <div class="sign_in">
+
+            <label>
+                <h3>Already an user?</h3>
+            </label>
+            
+            <label>
+                <p>Sign in Instead</p>
+            </label>
+              
+            <a href="{% url "sign_in" %}"> 
+                <input class="btn_sign_in" type="button" value="Sign in">
+            </a>
+            
+        </div>
+
+    </div>
+</body>
+</html>

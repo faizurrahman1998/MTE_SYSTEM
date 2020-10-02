@@ -1,0 +1,205 @@
+*, *::before, *::after
+{
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+body
+{
+    width: 100%; 
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: -webkit-linear-gradient(left, #1e262e, #050202);
+    font-family: 'Nunito', sans-serif;
+}
+
+input, button
+{
+    border: none; 
+    outline: none; 
+    background: none;
+}
+
+.mess_list
+{
+    position: absolute; 
+    z-index: 99;
+    bottom: 10px; 
+    left: 10px; 
+    color: red;
+}
+
+.mess_list .errorlist li
+{
+    font-size: 15px;
+}
+
+.container
+{
+    width: 60%; 
+    height: 80%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #1e262e65;
+    /* box-shadow: 0px 0px 300px yellow; */
+}
+
+.sign_up
+{
+    width: 70%; 
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px; 
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.sign_up h2
+{
+    width: 100%;
+    font-size: 40px;
+    font-weight: 500;
+    color: aqua; 
+    text-align: center;
+}
+
+.sign_up form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.fields
+{
+    position: relative;
+    width: 90%;
+    height: 40px; 
+    margin-top: 40px;
+    text-transform: uppercase;
+}
+
+.fields input
+{
+    width: 100%; 
+    height: 100%; 
+    font-size: 20px;
+    color: rgb(241, 116, 116); 
+    border-bottom: 1.8px solid rgb(33, 159, 209);
+
+}
+
+.fields label
+{
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+    left: 0%; 
+    pointer-events: none;
+}
+
+.fields span
+{
+    position: absolute;
+    bottom: 5px; 
+    left: 0px; 
+    font-size: 20px;
+    font-weight: 300;
+    color: #FFEE58; 
+    transition: all 0.4s ease-in-out 0s;
+}
+
+.fields input:focus
+{
+
+    border-bottom: 1.8px solid rgb(73, 224, 14);
+    transition: all 0.5s ease-in-out 0s;
+
+}
+
+.fields input:focus + label, 
+.fields input:valid + label
+{
+    transform: translateY(-70%); 
+    transition: all 0.4s ease-in-out 0s;
+
+}
+
+.reg
+{
+    margin-top: 40px;
+    width: 100px; 
+    height: 50px; 
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: 500;
+    color: greenyellow; 
+    border: 2px solid greenyellow; 
+}
+
+.reg:hover
+{
+    background: rgba(127, 240, 255, 0.521);
+    color: black; 
+    transition: all 0.3s ease 0s;
+}
+
+
+.sign_in
+{
+    width: 30%; 
+    height: 100%; 
+    text-align: center;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    background: #1e262e2a;
+}
+
+.sign_in label
+{
+    padding: 50px 30px;
+}
+
+.sign_in h3
+{
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: cyan; 
+}
+
+.sign_in p
+{
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 5px;
+    color:#FFEE58 ; 
+}
+
+.btn_sign_in
+{
+    width: 100px; 
+    height: 50px; 
+    border: 2px solid yellowgreen; 
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #FFEE58;
+}
+
+.btn_sign_in:hover
+{
+    background: yellowgreen; 
+    color: black; 
+    transition: all 0.4s ease 0s;
+}
