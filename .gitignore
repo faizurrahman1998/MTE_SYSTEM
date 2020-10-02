@@ -1,7 +1,5 @@
 .vscode
 db.sqlite3
 mte_system/mte_system/secret_key.key
-mte_system/mte_system/__pycache__
-mte_system/auth_app/__pycache__
-mte_system/auth_app/migrations/__pycache__
+__pycache__
 mte_system/auth_app/migrations/0001_initial.py
