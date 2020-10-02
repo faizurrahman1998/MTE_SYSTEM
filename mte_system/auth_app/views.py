@@ -4,6 +4,11 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import UserCreationForm
 
 def sign_up(request): 
+
+    context = {
+        "title" : "Sign Up",
+    }
+
     if not request.user.is_authenticated:
 
         if request.method == "POST": 
@@ -15,14 +20,20 @@ def sign_up(request):
                 return redirect("sign_in")
             
             else: 
-                return render(request, "auth_app/sign_up.html", {"errors": form.errors})
+                context.update({"errors": form.errors})
+                return render(request, "auth_app/sign_up.html", context)
         
-        return render(request, "auth_app/sign_up.html")
+        return render(request, "auth_app/sign_up.html", context=context)
 
     else: 
         return redirect("dash")
 
 def sign_in(request): 
+
+    context = {
+        "title": "Sign in",
+    }
+
     if not request.user.is_authenticated:
         
         if request.method == "POST":
@@ -37,9 +48,9 @@ def sign_in(request):
             
             else: 
                 messages.error(request, "Username or password is incorrect")
-                return render(request, 'auth_app/sign_in.html')
+                return render(request, 'auth_app/sign_in.html', context)
 
-        return render(request, 'auth_app/sign_in.html')
+        return render(request, 'auth_app/sign_in.html', context)
     
     else: 
         return redirect("dash")

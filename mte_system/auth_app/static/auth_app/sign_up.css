@@ -33,9 +33,10 @@ input, button
     color: red;
 }
 
-.mess_list .errorlist li
+.mess_list
 {
     font-size: 15px;
+    text-transform: capitalize;
 }
 
 .container
