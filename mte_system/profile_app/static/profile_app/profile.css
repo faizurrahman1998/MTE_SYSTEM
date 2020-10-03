@@ -12,16 +12,18 @@ body
 
 header
 {
+    overflow: hidden;
     width: 100%; 
     height: 13%; 
     display: flex;
+    flex-wrap: wrap;
     padding: 5px 5px; 
     justify-content: space-between;
-    background: -webkit-linear-gradient(left, #2ECC71, #229954);
+    background: -webkit-linear-gradient(left, #142436, #05343a);
 
 }
 
-#logo
+header .logo
 {
     width: 110px; 
     height: 115px; 
@@ -40,44 +42,114 @@ nav label
 {
     font-size: 80px;
     font-weight: 500;
-    color: darkslategray;
+    color: rgb(52, 80, 82);
     font-family: 'Overpass', sans-serif;
 }
 
 
 #logout
 {
-    position: -webkit-sticky;
-    position: sticky;
-    width: 80px;
-    height: 30px;
+
+    width: 85px;
+    height: 35px;
     border-radius: 15px;
-    border: 2px solid red;
+    border: 1.5px solid red;
     background: transparent;
+}
+
+#logout a
+{
+    color: cyan;
 }
 
 #logout:hover
 {
-    color: white;
     background: red;
     transition: all 0.2s ease 0s;
 }
 
 nav a
 {
-
     text-decoration: none;
-    font-size: 20px;
-    font-weight: 400; 
+    font-size: 18px;
+    font-weight: 300; 
 }
 
 .infobody
 {
-    width: 100%; 
+    width: 20%; 
     height: 100%;
     display: flex;
     flex-direction: column;
-    font-size: 30px;
-    background: -webkit-linear-gradient(left, #1A237E, #0D47A1)
+    flex-wrap: wrap;
+    padding: 10px;
+    background: -webkit-linear-gradient(top,#4f90ad, black)
 }
 
+.infobody h3
+{
+    font-size: 30px;
+    font-weight: 400;
+    color: #142436;
+}
+
+.infobody h3::first-letter
+{
+    font-size: 40px;
+}
+
+.infobody hr
+{
+    width: 100%;
+    border: 1.2px dashed rgb(48, 15, 15); 
+}
+
+.infobody .img_holder
+{
+    width: 100%; 
+    height: 30%; 
+    display: flex;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.281);
+}
+
+.img_holder .profile_img
+{
+    width: 80%; 
+    height: 90%;
+    margin: auto;
+    padding: 10px;
+    border-radius: 25px;
+    object-fit: cover;
+}
+
+
+.infobody label
+{
+    font-size: 22px;
+    font-weight: 300;
+    font-family: 'Piazzolla', serif;
+    color: antiquewhite;
+}
+
+.infobody label span
+{
+    font-family: 'Overpass', sans-serif;
+    color: rgb(25, 194, 171);
+
+}
+
+@media (max-width:1400px)
+{
+    body
+    {
+        width: 1400px;
+        background: aqua;
+    }
+
+    .infobody
+    {
+        width: 350px;
+    }
+}

@@ -57,6 +57,11 @@ class User_Profile(AbstractBaseUser, PermissionsMixin):
         unique=True,
     )
 
+    image = models.ImageField(
+        default="default.png", 
+        upload_to="profile_pics"
+    )
+
     first_name = models.CharField(
         max_length=50
     )

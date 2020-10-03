@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from auth_app import views as auth_app_views
 from profile_app import views as profile_app_views
 
@@ -24,4 +26,4 @@ urlpatterns = [
     path("sign_up/", auth_app_views.sign_up, name='sign_up'),
     path("logout/", auth_app_views.log_out, name="log_out"),
     path("dash/", profile_app_views.profile_dash, name='dash'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

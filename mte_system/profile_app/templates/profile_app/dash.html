@@ -5,28 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Piazzolla:ital@1&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{% static "profile_app/profile.css" %}">
     <title>Profile</title>
 </head>
 <body>
     <header>
-        <img id="logo" src="{% static "profile_app/logo.png" %}" alt="kuet logo">
+        <img class="logo" src="{% static "profile_app/logo.png" %}" alt="kuet logo">
         <nav>
             <label>
                 Mechatronics Engineering
             </label>  
 
             <button id="logout">
-            <a href="{% url "log_out" %}">Log out</a>
+                <a href="{% url "log_out" %}">Log out</a>
             </button>  
             
         </nav>
     </header>
     <div class="infobody">
-        <h3> what the hell </h3>
+
+        <h3> Personal Informations </h3>
+        
+        <hr>
+        <br>
+
+        <div class="img_holder">
+            <img class="profile_img" src="{{ user.image.url }}" alt="{{ user.username }}">
+        </div>
+
         <label> <span> Name: </span>{{user.first_name}} {{user.last_name}}</label>
         <label> <span> Email: </span>{{user.email}}</label>
+        <label> <span> ID: </span>{{user.kuet_id}}</label>
+
     </div>
 </body>
 </html>

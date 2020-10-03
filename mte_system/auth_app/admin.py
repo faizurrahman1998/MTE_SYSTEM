@@ -33,7 +33,7 @@ class UserAdmin(BaseUserAdmin):
             "fields": ("username", "password")
         }), 
         ("Personal_info", {
-            "fields": ("first_name", "last_name", "email")
+            "fields": ("first_name", "last_name", "email", "image")
         }), 
         ("Permissions", {
             "fields": ("isStaff", "isSuperuser", "isActive")
@@ -44,7 +44,7 @@ class UserAdmin(BaseUserAdmin):
     add_fieldsets = (
         (None, {
             "classes" : ("wide"), 
-            "fields" : ("kuet_id", "username", "first_name", "last_name", "email", "password1", "password2")
+            "fields" : ("kuet_id", "username", "first_name", "last_name", "email", "image", "password1", "password2")
         }),
     )
 
