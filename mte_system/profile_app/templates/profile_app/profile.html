@@ -1,0 +1,65 @@
+{% extends "profile_app/base.html" %}
+{% load static %}
+
+    {% block linkcss %}
+        <link rel="stylesheet" href="{% static "profile_app/profile.css" %}">
+    {% endblock linkcss%}
+
+{% block body %}
+
+    {% if form or messages %}
+
+        <div class="mess_list">
+
+            <div class="msg">
+
+                {% for message in messages %}
+                    >> {{message}}
+                {% endfor %}
+
+            </div>
+
+            
+            {%if form%}
+                {% for field in form %}
+
+                    {% if field.errors %}
+
+                        <div class="errors">
+                            in   : {{ field.html_name }} <br>
+                            
+                            error: <span id = "err">{{ field.errors }}</span>
+                        
+                            {% if field.help_text %}
+                                <span>hint : </span>{{ field.help_text }}
+                            {%endif%}
+                        </div>
+
+                    {%endif%}
+                    
+
+                {%endfor%}
+            {%endif%}
+
+        </div>  
+
+    {% endif %}
+
+    <div class="infobody">
+
+        <h3> Personal Informations </h3>
+        
+        <hr>
+        <br>
+
+        <div class="img_holder">
+            <img class="profile_img" src="{{ user.image.url }}" alt="{{ user.username }}">
+            <a href="{% url "update_profile" %}">Update</a>
+        </div>
+
+        <label> <span> Name: </span>{{user.first_name}} {{user.last_name}}</label>
+        <label> <span> Email: </span>{{user.email}}</label>
+        <label> <span> ID: </span>{{user.kuet_id}}</label>
+
+    </div>
+{% endblock body%}

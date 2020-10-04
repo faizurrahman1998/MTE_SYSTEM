@@ -7,10 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Piazzolla:ital@1&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{% static "profile_app/profile.css" %}">
-    <title>Profile</title>
+    {% block linkcss %}
+    {% endblock linkcss %}
+
+    <title>{{ title }}</title>
+    
 </head>
 <body>
+
     <header>
         <img class="logo" src="{% static "profile_app/logo.png" %}" alt="kuet logo">
         <nav>
@@ -24,21 +28,10 @@
             
         </nav>
     </header>
-    <div class="infobody">
 
-        <h3> Personal Informations </h3>
-        
-        <hr>
-        <br>
+    {% block body %}
+    {% endblock body%}
 
-        <div class="img_holder">
-            <img class="profile_img" src="{{ user.image.url }}" alt="{{ user.username }}">
-        </div>
-
-        <label> <span> Name: </span>{{user.first_name}} {{user.last_name}}</label>
-        <label> <span> Email: </span>{{user.email}}</label>
-        <label> <span> ID: </span>{{user.kuet_id}}</label>
-
-    </div>
 </body>
 </html>
+

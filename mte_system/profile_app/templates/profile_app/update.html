@@ -1,0 +1,137 @@
+{% extends "profile_app/base.html" %}
+{% load static %}
+
+{%block linkcss %}
+    <link rel="stylesheet" href="{% static "profile_app/update.css" %}">
+{%endblock linkcss %}
+
+{%block body %}
+
+    {% if form or messages %}
+
+        <div class="mess_list">
+
+            <div class="msg">
+
+                {% for message in messages %}
+                    >> {{message}}
+                {% endfor %}
+
+            </div>
+
+            
+            {%if form%}
+                {% for field in form %}
+
+                    {% if field.errors %}
+
+                        <div class="errors">
+                            in   : {{ field.html_name }} <br>
+                            
+                            error: <span id = "err">{{ field.errors }}</span>
+                        
+                            {% if field.help_text %}
+                                <span>hint : </span>{{ field.help_text }}
+                            {%endif%}
+                        </div>
+
+                    {%endif%}
+                    
+
+                {%endfor%}
+            {%endif%}
+
+        </div>  
+
+    {% endif %}
+    
+    <div class="update_form">
+        <div class="wrapper">
+
+            <form method="POST" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                <div class="fields">
+
+                    <input name="kuet_id" type="text" autocomplete="off" value="{{ user.kuet_id }}" disabled>
+                    <label for="kuet_id">
+                        <span>
+                            Kuet ID
+                        </span>
+                    </label>
+
+                </div>
+
+                <div class="fields">
+
+                    <input name="username" type="text" autocomplete="off" value="{{ user.username }}" disabled>
+                    <label for="username">
+                        <span>
+                            Username
+                        </span>
+                    </label>
+
+                </div>
+
+                <div class="fields">
+
+                    <input name="first_name" type="text" autocomplete="off" value="{{ user.first_name }}" >
+                    <label for="first_name">
+                        <span>
+                            First name
+                        </span>
+                    </label>
+
+                </div>
+
+                <div class="fields">
+
+                    <input name="last_name" type="text" autocomplete="off" value="{{ user.last_name }}" >
+                    <label for="last_name">
+                        <span>
+                            last name
+                        </span>
+                    </label>
+
+                </div>
+
+                <div class="fields">
+
+                    <input name="email" type="text" autocomplete="off" value="{{ user.email }}" disabled>
+                    <label for="email">
+                        <span>
+                            email
+                        </span>
+                    </label>
+
+                </div>
+
+                <div class="fields">
+
+                    <input name="image" type="file" accept="image/*">
+                    <label for="image">
+                        <span>
+                            image
+                        </span>
+                    </label>
+
+                </div>
+
+                <button class="update_btn" type="submit">Update</button>
+
+            </form>
+
+            <div class="image_holder">
+                
+                <img src="{{user.image.url}}" alt="">
+
+                <label for="img">Current Profile Picture</label>
+
+            </div>
+
+
+        </div>
+    </div>
+
+{%endblock body %}

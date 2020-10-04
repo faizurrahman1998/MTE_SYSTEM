@@ -1,0 +1,267 @@
+*{
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+input, button
+{
+    outline: none; 
+    border: none;
+    background: none;
+}
+
+body
+{
+    width: 100%; 
+    height: 100vh; 
+}
+
+header
+{
+    overflow: hidden;
+    width: 100%; 
+    height: 13%; 
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 5px; 
+    justify-content: space-between;
+    background: -webkit-linear-gradient(left, #142436, #05343a);
+
+}
+
+header .logo
+{
+    width: 110px; 
+    height: 115px; 
+}
+
+nav
+{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav label
+{
+    font-size: 80px;
+    font-weight: 500;
+    color: rgb(52, 80, 82);
+    font-family: 'Overpass', sans-serif;
+}
+
+
+#logout
+{
+
+    width: 85px;
+    height: 35px;
+    border-radius: 15px;
+    border: 1.5px solid red;
+    background: transparent;
+}
+
+#logout a
+{
+    color: cyan;
+}
+
+#logout:hover
+{
+    background: red;
+    transition: all 0.2s ease 0s;
+}
+
+nav a
+{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 300; 
+}
+
+.mess_list
+{
+    position: absolute; 
+    bottom: 10px; 
+    left: 10px; 
+    border-radius: 15px;
+    width: 320px;
+    display: block; 
+    background: rgba(255, 255, 255, 0.288);
+}
+
+.mess_list .msg
+{
+    padding: 5px; 
+    margin: 5px; 
+    color: rgba(231, 152, 4, 0.856);
+    border-radius: 15px;
+    background: rgba(102, 36, 29, 0.219);
+}
+
+.mess_list .errors
+{
+    color: rgba(0, 0, 0, 0.925);
+    background: rgba(238, 11, 11, 0.233);
+    font-size: 20px;
+    font-weight: 400;
+    padding: 5px; 
+    margin: 5px; 
+    border-radius: 15px;
+}
+
+.mess_list .errors #err
+{
+    font-weight: 500;
+    color: red;
+}
+
+.mess_list .errors span
+{
+    font-weight: 500;
+    color: springgreen;
+}
+
+.mess_list .msg:hover, 
+.mess_list .errors:hover
+{
+    padding-left: 10px;
+}
+
+.update_form
+{
+    display: flex;
+    width: 100%; 
+    height: 100vh; 
+    justify-content: center;
+    align-items:center; 
+    background: -webkit-linear-gradient(bottom, #cfa6ff, #0c2252be, #000000);
+}
+
+.update_form .wrapper
+{
+    width: 80%; 
+    height: 80%; 
+    display: flex; 
+    flex-direction: row;
+    
+}
+
+.update_form .wrapper form
+{
+    display: flex;
+    width: 65%; 
+    height: 100%; 
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #afe49f21;
+}
+
+.update_form .wrapper form .fields
+{
+    position: relative;
+    width: 90%;
+    height: 40px; 
+    margin-top: 40px;
+    text-transform: uppercase;
+}
+
+.update_form .wrapper form .fields input
+{
+    width: 100%; 
+    height: 100%; 
+    font-size: 22px;
+    color: rgb(190, 251, 255); 
+    padding-left: 5px;
+    border-radius: 10px;
+    border: 1.8px solid springgreen; 
+
+
+}
+
+.update_form .wrapper form .fields label
+{
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+    left: 0%; 
+    top: -90%;
+    pointer-events: none;
+}
+
+.update_form .wrapper form .fields span
+{
+    position: absolute;
+    bottom: 5px; 
+    left: 0px; 
+    font-size: 20px;
+    font-weight: 300;
+    color: #ffb340; 
+    transition: all 0.4s ease-in-out 0s;
+}
+
+.update_form .wrapper form .fields input:focus
+{
+
+    border-bottom: 1.8px solid rgb(73, 224, 14);
+    transition: all 0.5s ease-in-out 0s;
+
+}
+
+
+.update_form .wrapper form .fields input:disabled
+{
+    border: 1.8px solid tomato; 
+    transition: all 0.4s ease-in-out 0s;
+
+}
+
+.update_btn
+{
+    margin-top: 40px;
+    width: 100px; 
+    height: 50px; 
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: 500;
+    color: greenyellow; 
+    border: 2px solid greenyellow; 
+}
+
+.update_btn:hover
+{
+    background: rgba(127, 240, 255, 0.521);
+    color: black; 
+    transition: all 0.3s ease 0s;
+}
+
+.update_form .wrapper .image_holder
+{
+    width: 35%; 
+    height: 90%; 
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.update_form .wrapper .image_holder img
+{
+    width: 80%; 
+    height: 90%;
+    margin: auto;
+    padding: 10px;
+    border-radius: 25px;
+    object-fit: cover;
+}
+
+.update_form .wrapper .image_holder label
+{
+    width: 100%; 
+    height: 10%;
+    font-size: 20px;
+    text-align: center;
+}

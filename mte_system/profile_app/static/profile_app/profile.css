@@ -68,6 +68,55 @@ nav label
     transition: all 0.2s ease 0s;
 }
 
+.mess_list
+{
+    position: absolute; 
+    bottom: 10px; 
+    right: 0; 
+    border-radius: 15px;
+    width: 320px;
+    display: block; 
+    background: rgba(255, 255, 255, 0.288);
+}
+
+.mess_list .msg
+{
+    padding: 5px; 
+    margin: 5px; 
+    color: rgba(231, 152, 4, 0.856);
+    border-radius: 15px;
+    background: rgba(102, 36, 29, 0.219);
+}
+
+.mess_list .errors
+{
+    color: rgba(0, 0, 0, 0.925);
+    background: rgba(238, 11, 11, 0.233);
+    font-size: 20px;
+    font-weight: 400;
+    padding: 5px; 
+    margin: 5px; 
+    border-radius: 15px;
+}
+
+.mess_list .errors #err
+{
+    font-weight: 500;
+    color: red;
+}
+
+.mess_list .errors span
+{
+    font-weight: 500;
+    color: springgreen;
+}
+
+.mess_list .msg:hover, 
+.mess_list .errors:hover
+{
+    padding-left: 10px;
+}
+
 nav a
 {
     text-decoration: none;
@@ -78,7 +127,7 @@ nav a
 .infobody
 {
     width: 20%; 
-    height: 100%;
+    height: 87%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -107,7 +156,7 @@ nav a
 .infobody .img_holder
 {
     width: 100%; 
-    height: 30%; 
+    height: 40%; 
     display: flex;
     margin-bottom: 30px;
     border-radius: 15px;
@@ -122,6 +171,20 @@ nav a
     padding: 10px;
     border-radius: 25px;
     object-fit: cover;
+}
+
+.img_holder a
+{
+    position: absolute;
+    text-decoration: none;
+    margin-left: 10px;  
+    bottom: 10px;
+    color: sandybrown; 
+}
+
+.img_holder a:hover
+{
+    color: springgreen;
 }
 
 
@@ -151,5 +214,6 @@ nav a
     .infobody
     {
         width: 350px;
+        /* height: 1080px; */
     }
 }
