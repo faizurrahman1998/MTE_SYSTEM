@@ -19,6 +19,15 @@ class UserCreationForm(forms.ModelForm):
             "last_name", 
             "email"
         )
+
+    def clean_email(self): 
+
+        email = self.cleaned_data.get("email")
+
+        if email.split("@")[1] != "stud.kuet.ac.bd": 
+            raise ValidationError(f"Domain error.")
+
+        return email
     
     def clean_password2(self): 
 
@@ -45,18 +54,25 @@ class UserCreationForm(forms.ModelForm):
 
 class UserChangeForm(forms.ModelForm): 
 
-    password = ReadOnlyPasswordHashField()
-
     class Meta: 
         model = User_Profile
-        fields = (
-            "kuet_id", 
-            "username", 
+
+        fields = ( 
             "first_name", 
             "last_name", 
-            "email", 
-            "password"
+            "image",
         )
 
-    def clean_password(self):
-        return self.initial["password"]
+    def clean_image(self):
+
+        if self.cleaned_data["image"]: 
+            try: 
+                name = self.cleaned_data["image"].name
+                name = name.replace(name.rsplit(".", 1)[0], "".join(list(self.cleaned_data["first_name"].split(" "))))
+                self.cleaned_data["image"].name = name
+            except: 
+                pass
+
+        return self.cleaned_data["image"]
+
+

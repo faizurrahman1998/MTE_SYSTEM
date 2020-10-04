@@ -15,7 +15,7 @@
         <div class="no_holder">
             {% for message in messages %}
 
-                <div class="notifications">
+                <div class="{{ message.tags }}">
                     <p>> {{message}}</p>
                 </div>
             {% endfor %}

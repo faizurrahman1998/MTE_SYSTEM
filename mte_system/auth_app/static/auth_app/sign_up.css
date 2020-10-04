@@ -27,17 +27,52 @@ input, button
 .mess_list
 {
     position: absolute; 
-    z-index: 99;
     bottom: 10px; 
     left: 10px; 
+    border-radius: 15px;
+    width: 320px;
+    display: block; 
+    background: rgba(255, 255, 255, 0.288);
+}
+
+.mess_list .msg
+{
+    padding: 5px; 
+    margin: 5px; 
+    color: rgba(231, 152, 4, 0.856);
+    border-radius: 15px;
+    background: rgba(102, 36, 29, 0.219);
+}
+
+.mess_list .errors
+{
+    color: rgba(0, 0, 0, 0.925);
+    background: rgba(238, 11, 11, 0.233);
+    font-size: 20px;
+    font-weight: 400;
+    padding: 5px; 
+    margin: 5px; 
+    border-radius: 15px;
+}
+
+.mess_list .errors #err
+{
+    font-weight: 500;
     color: red;
 }
 
-.mess_list
+.mess_list .errors span
 {
-    font-size: 15px;
-    text-transform: capitalize;
+    font-weight: 500;
+    color: springgreen;
 }
+
+.mess_list .msg:hover, 
+.mess_list .errors:hover
+{
+    padding-left: 10px;
+}
+
 
 .container
 {

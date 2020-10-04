@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
-from django.core.validators import MinLengthValidator
+from django.core.validators import MinLengthValidator, EmailValidator
 from django.utils import timezone
 
 class UserManager(BaseUserManager): 
@@ -72,7 +72,8 @@ class User_Profile(AbstractBaseUser, PermissionsMixin):
 
     email = models.EmailField(
         max_length=50, 
-        unique=True
+        unique=True, 
+        help_text="Enter your student email provided by KUET",
     )
 
     isStaff = models.BooleanField(

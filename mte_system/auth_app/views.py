@@ -20,7 +20,7 @@ def sign_up(request):
                 return redirect("sign_in")
             
             else: 
-                context.update({"errors": form.errors})
+                context.update({"form": form})
                 return render(request, "auth_app/sign_up.html", context)
         
         return render(request, "auth_app/sign_up.html", context=context)

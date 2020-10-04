@@ -47,19 +47,31 @@ input, button
     left: 20px;
     padding: 0px 5px;
     margin-bottom: 10px;
-    width: 15%;
-    background: rgba(64, 224, 112, 0.096);
 }
 
-.notifications
+.no_holder .error
 {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0px; 
-    left: 10px; 
-    font-size: 18px;
-    color: springgreen;
+    width: 300px; 
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgb(168, 37, 28);
+    padding: 10px; 
+    margin: 10px; 
+    background: rgba(224, 4, 48, 0.342);
 
+}
+
+.no_holder .success
+{
+    width: 300px; 
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgb(221, 141, 37);
+    padding: 10px; 
+    margin: 10px; 
+    background: rgba(22, 219, 15, 0.342);
 }
 
 .container
