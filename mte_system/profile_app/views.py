@@ -3,7 +3,6 @@ from django.contrib import messages
 from auth_app.forms import UserChangeForm
 from django.contrib.auth.decorators import login_required
 
-from django.core.mail import send_mail, EmailMessage
 #helper_function
 from mte_system.Helper import Helper_Functions
 
@@ -18,6 +17,7 @@ def profile_dash(request):
 
 
 def update_profile(request): 
+    
     context = {
             "title": "Update Profile"
         }
@@ -47,3 +47,4 @@ def update_profile(request):
     
     else: 
         return redirect("sign_in")
+

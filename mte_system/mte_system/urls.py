@@ -26,5 +26,6 @@ urlpatterns = [
     path("sign_up/", auth_app_views.sign_up, name='sign_up'),
     path("logout/", auth_app_views.log_out, name="log_out"),
     path("dash/", profile_app_views.profile_dash, name='dash'),
-    path("update/", profile_app_views.update_profile, name = "update_profile")
+    path("update/", profile_app_views.update_profile, name="update_profile"), 
+    path("verification/<uid64>/<token>", auth_app_views.verification, name="verification")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
