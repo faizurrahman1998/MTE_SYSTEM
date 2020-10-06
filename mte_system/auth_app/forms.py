@@ -62,17 +62,15 @@ class UserChangeForm(forms.ModelForm):
             "last_name", 
             "image",
         )
+    
+    def clean_image(self): 
 
-    def clean_image(self):
+        try: 
+            name = self.cleaned_data["image"].name
+            name = name.replace(name.rsplit(".", 1)[0], "".join(list(self.cleaned_data["first_name"].split(" "))))
+            self.cleaned_data["image"].name = name 
 
-        if self.cleaned_data["image"]: 
-            try: 
-                name = self.cleaned_data["image"].name
-                name = name.replace(name.rsplit(".", 1)[0], "".join(list(self.cleaned_data["first_name"].split(" "))))
-                self.cleaned_data["image"].name = name
-            except: 
-                pass
+            return self.cleaned_data["image"]
 
-        return self.cleaned_data["image"]
-
-
+        except: 
+            pass

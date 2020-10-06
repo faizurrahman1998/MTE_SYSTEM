@@ -3,9 +3,9 @@ from django.contrib import messages
 from auth_app.forms import UserChangeForm
 from django.contrib.auth.decorators import login_required
 
+from django.core.mail import send_mail, EmailMessage
 #helper_function
 from mte_system.Helper import Helper_Functions
-
 
 
 @login_required(login_url="sign_in")
@@ -29,11 +29,12 @@ def update_profile(request):
             form = UserChangeForm(request.POST, request.FILES, instance=request.user)
 
             if form.is_valid():
-                
+
                 Helper_Functions.delete_image(request)
                 form.save()
 
                 messages.success(request, "Profile Updated")
+                
                 return redirect("dash")
 
             else: 

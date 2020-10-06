@@ -124,7 +124,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#custom user model
+AUTH_USER_MODEL = 'auth_app.User_Profile'
+
+#media configuration
 MEDIA_ROOT = os.path.join(BASE_DIR, "MEDIA")
 MEDIA_URL = "/media/"
 
-AUTH_USER_MODEL = 'auth_app.User_Profile'
+# #SMTP Email configuration
+# EMAIL_BACKEND = "   django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = os.environ.get("EMAIL_HOST")
+EMAIL_PORT = os.environ.get("EMAIL_PORT")
+EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS")
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
