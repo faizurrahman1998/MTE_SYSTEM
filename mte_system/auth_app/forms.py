@@ -54,6 +54,8 @@ class UserCreationForm(forms.ModelForm):
 
 class UserChangeForm(forms.ModelForm): 
 
+    password = ReadOnlyPasswordHashField()
+
     class Meta: 
         model = User_Profile
 
@@ -61,6 +63,7 @@ class UserChangeForm(forms.ModelForm):
             "first_name", 
             "last_name", 
             "image",
+            "password"
         )
     
     def clean_image(self): 
@@ -74,3 +77,11 @@ class UserChangeForm(forms.ModelForm):
 
         except: 
             pass
+
+        return self.initial['image']
+
+    def clean_password(self):
+        # Regardless of what the user provides, return the initial value.
+        # This is done here, rather than on the field, because the
+        # field does not have access to the initial value
+        return self.initial["password"]
