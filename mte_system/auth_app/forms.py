@@ -67,16 +67,19 @@ class UserChangeForm(forms.ModelForm):
         )
     
     def clean_image(self): 
+        
+        name = self.cleaned_data["image"].name
 
-        try: 
-            name = self.cleaned_data["image"].name
-            name = name.replace(name.rsplit(".", 1)[0], "".join(list(self.cleaned_data["first_name"].split(" "))))
-            self.cleaned_data["image"].name = name 
+        if name != ((self.initial["image"].name)): #if the user doesn't upload a new picture, then name from form and initial name are same
+            print("in if")
+            try: 
+                name = name.replace(name.rsplit(".", 1)[0], "".join(list(self.cleaned_data["first_name"].split(" "))))
+                self.cleaned_data["image"].name = name 
 
-            return self.cleaned_data["image"]
+                return self.cleaned_data["image"]
 
-        except: 
-            pass
+            except: 
+                pass
 
         return self.initial['image']
 

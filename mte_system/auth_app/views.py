@@ -104,8 +104,6 @@ def verification(request, uid64, token):
     user_name = force_text(urlsafe_base64_decode(uid64)) 
     user = get_user_model().objects.filter(username=user_name).first()
 
-    print(user_name, user.first_name)
-
     if activation_token_generator.check_token(user, token): 
 
 

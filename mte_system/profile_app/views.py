@@ -30,7 +30,8 @@ def update_profile(request):
 
             if form.is_valid():
 
-                Helper_Functions.delete_image(request)
+                request.FILES.get("image") and Helper_Functions.delete_image(request)
+
                 form.save()
 
                 messages.success(request, "Profile Updated")
