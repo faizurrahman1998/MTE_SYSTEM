@@ -22,10 +22,14 @@ from profile_app import views as profile_app_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('', auth_app_views.sign_in, name='sign_in'),
-    path("sign_up/", auth_app_views.sign_up, name='sign_up'),
+    path("signup/", auth_app_views.sign_up, name='sign_up'),
     path("logout/", auth_app_views.log_out, name="log_out"),
+    path("verification/<uid64>/<token>", auth_app_views.verification, name="verification"),
+
     path("dash/", profile_app_views.profile_dash, name='dash'),
     path("update/", profile_app_views.update_profile, name="update_profile"), 
-    path("verification/<uid64>/<token>", auth_app_views.verification, name="verification")
+    path("changepassword/", profile_app_views.change_password, name="change_password")
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

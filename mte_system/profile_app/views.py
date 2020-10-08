@@ -49,3 +49,6 @@ def update_profile(request):
     else: 
         return redirect("sign_in")
 
+@login_required(login_url="sign_in")
+def change_password(request): 
+    return render(request, "profile_app/change_password.html")

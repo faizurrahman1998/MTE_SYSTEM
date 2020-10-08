@@ -66,6 +66,7 @@ def sign_up(request):
     else: 
         return redirect("dash")
 
+
 def sign_in(request): 
 
     context = {
@@ -82,6 +83,7 @@ def sign_in(request):
 
             if user: 
                 login(request, user)
+                # uid64 = urlsafe_base64_encode(force_bytes(user.username))
                 return redirect("dash")
             
             else: 
@@ -94,10 +96,12 @@ def sign_in(request):
         return redirect("dash")
 
 
+
 def log_out(request): 
     
     logout(request)
     return redirect("sign_in")
+
 
 def verification(request, uid64, token):
 
