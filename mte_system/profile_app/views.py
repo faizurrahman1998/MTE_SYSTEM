@@ -3,7 +3,7 @@ from django.contrib import messages
 from auth_app.forms import UserChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, login
 from django.urls import reverse
 
 #helper_function
@@ -51,18 +51,3 @@ def update_profile(request, username):
     
     else: 
         return redirect("sign_in")
-
-
-@login_required(login_url="sign_in")
-def change_password(request, username): 
-
-    context = {
-        "title": "Change Password"
-    }
-
-    if request.method == "POST": 
-
-        user = get_user_model().objects.filter(username=request.user.username).first()
-        form = PasswordChangeForm(user, request.POST)
-
-    return render(request, "profile_app/change_password.html", context)

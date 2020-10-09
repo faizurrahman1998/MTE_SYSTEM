@@ -1,10 +1,15 @@
 from django.shortcuts import render, redirect, HttpResponse
+
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.sites.shortcuts import get_current_site
+
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+
 from django.urls import reverse
 from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
@@ -122,3 +127,27 @@ def verification(request, uid64, token):
 
         messages.error(request, "This url is broken.")
         return redirect("sign_up")
+
+@login_required(login_url="sign_in")
+def change_password(request, username): 
+
+    context = {
+        "title": "Change Password"
+    }
+
+    if request.method == "POST": 
+
+        user = get_user_model().objects.filter(username=request.user.username).first()
+        form = PasswordChangeForm(user, request.POST)
+
+        if form.is_valid(): 
+            form.save()
+            login(request, user)
+            messages.success(request, "Password Changed")
+            return redirect(reverse("dash", args=(user.username,)))
+
+        else: 
+
+            context.update({"form": form})
+
+    return render(request, "profile_app/change_password.html", context)
