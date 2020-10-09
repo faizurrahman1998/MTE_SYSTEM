@@ -28,8 +28,8 @@ urlpatterns = [
     path("logout/", auth_app_views.log_out, name="log_out"),
     path("verification/<uid64>/<token>", auth_app_views.verification, name="verification"),
 
-    path("dash/", profile_app_views.profile_dash, name='dash'),
-    path("update/", profile_app_views.update_profile, name="update_profile"), 
-    path("changepassword/", profile_app_views.change_password, name="change_password")
+    path("<username>/", profile_app_views.profile_dash, name='dash'),
+    path("<username>/update/", profile_app_views.update_profile, name="update_profile"), 
+    path("<username>/change-password/", profile_app_views.change_password, name="change_password")
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

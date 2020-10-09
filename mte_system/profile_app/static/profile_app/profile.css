@@ -173,18 +173,31 @@ nav a
     object-fit: cover;
 }
 
-.img_holder a
+.img_holder #update_optns
 {
     position: absolute;
+    width: 380px; 
+    height: 50px;
     text-decoration: none;
-    margin-left: 10px;  
-    bottom: 10px;
-    color: sandybrown; 
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+
 }
 
-.img_holder a:hover
+.img_holder #update_optns a
+{
+    color:orange;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.img_holder #update_optns a:hover
 {
     color: springgreen;
+    transition: all 1s ease 0s;
 }
 
 

@@ -83,8 +83,7 @@ def sign_in(request):
 
             if user: 
                 login(request, user)
-                # uid64 = urlsafe_base64_encode(force_bytes(user.username))
-                return redirect("dash")
+                return redirect(reverse("dash", args=(request.user.username,)))
             
             else: 
                 messages.error(request, "Username or password is incorrect")
@@ -93,7 +92,7 @@ def sign_in(request):
         return render(request, 'auth_app/sign_in.html', context)
     
     else: 
-        return redirect("dash")
+        return redirect(reverse("dash", args=(request.user.username,)))
 
 
 
@@ -117,9 +116,9 @@ def verification(request, uid64, token):
         login(request, user)
 
         messages.success(request, "Your Account is acctivated.")
-        return redirect("dash")
+        return redirect(reverse("dash", args=(user.username,)))
     
     else: 
-        print(user_name, user.isActive)
+
         messages.error(request, "This url is broken.")
         return redirect("sign_up")

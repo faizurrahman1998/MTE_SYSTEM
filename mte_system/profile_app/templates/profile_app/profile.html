@@ -54,7 +54,11 @@
 
         <div class="img_holder">
             <img class="profile_img" src="{{ user.image.url }}" alt="{{ user.username }}">
-            <a href="{% url "update_profile" %}">Update</a>
+            <nav id="update_optns">
+                <a href="{% url "update_profile" user.username %}">Update</a>
+                <a href="{% url "change_password" user.username %}">Change Password</a>
+            </nav>
+            
         </div>
 
         <label> <span> Name: </span>{{user.first_name}} {{user.last_name}}</label>
